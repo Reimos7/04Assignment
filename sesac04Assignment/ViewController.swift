@@ -47,6 +47,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tabBarItem.title = "나의 감정 일기"
+        
+        self.view.backgroundColor = .systemMint
       
         // 버튼 이미지
         button1.setBackgroundImage(.slime1, for: .normal)
@@ -103,29 +106,24 @@ class ViewController: UIViewController {
         
         
         
-        
     }
     
-    
+    // 버튼클릭 -> 숫자 증가 + 볼트체로 변경
     @IBAction func button1Pressed(_ sender: UIButton) {
         labelCount1 += 1
         labelNum1.text = "행복해 \(labelCount1)"
         labelNum1.font = .boldSystemFont(ofSize: 20)
     }
-    
     @IBAction func button2Pressed(_ sender: UIButton) {
         labelCount2 += 1
         labelNum2.text = "사랑해 \(labelCount2)"
         labelNum2.font = .boldSystemFont(ofSize: 20)
     }
-    
-    
     @IBAction func button3Pressed(_ sender: UIButton) {
         labelCount3 += 1
         labelNum3.text = "좋아해 \(labelCount3)"
         labelNum3.font = .boldSystemFont(ofSize: 20)
     }
-    
     @IBAction func button4Pressed(_ sender: UIButton) {
         labelCount4 += 1
         labelNum4.text = "당황해 \(labelCount4)"
