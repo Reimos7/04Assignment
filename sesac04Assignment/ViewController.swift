@@ -21,6 +21,9 @@ class ViewController: UIViewController {
     var labelCount9 = 0
     
     // 버튼
+    
+    @IBOutlet weak var resetButton: UIButton!
+    
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
@@ -42,6 +45,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var labelNum8: UILabel!
     @IBOutlet weak var labelNum9: UILabel!
     
+    // 배경화면
+    @IBOutlet weak var backGroundImage: UIImageView!
     
     
     override func viewDidLoad() {
@@ -49,7 +54,13 @@ class ViewController: UIViewController {
         
         self.tabBarItem.title = "나의 감정 일기"
         
-        self.view.backgroundColor = .systemMint
+        // 배경화면 설정 꽉차게
+        backGroundImage.image = #imageLiteral(resourceName: "paperback")
+        backGroundImage.contentMode = .scaleAspectFill
+        
+        // 리셋 버튼 설정
+        resetButton.setTitle("Reset", for: .normal)
+        resetButton.backgroundColor = .yellow
       
         // 버튼 이미지
         button1.setBackgroundImage(.slime1, for: .normal)
@@ -100,13 +111,12 @@ class ViewController: UIViewController {
         labelNum9.textAlignment = .center
         labelNum9.font = .systemFont(ofSize: 20)
         
-        
-        
         // 네비게이션 바
-        
+
         
         
     }
+    
     
     // 버튼클릭 -> 숫자 증가 + 볼트체로 변경
     @IBAction func button1Pressed(_ sender: UIButton) {
@@ -158,6 +168,45 @@ class ViewController: UIViewController {
     
     
     
-    
+    // 리셋 버튼 클릭
+    @IBAction func resetButtonPressed(_ sender: UIButton) {
+        labelNum1.text = "행복해"
+        labelNum1.textAlignment = .center
+        labelNum1.font = .systemFont(ofSize: 20)
+        
+        labelNum2.text = "사랑해"
+        labelNum2.textAlignment = .center
+        labelNum2.font = .systemFont(ofSize: 20)
+        
+        labelNum3.text = "좋아해"
+        labelNum3.textAlignment = .center
+        labelNum3.font = .systemFont(ofSize: 20)
+        
+        labelNum4.text = "당황해"
+        labelNum4.textAlignment = .center
+        labelNum4.font = .systemFont(ofSize: 20)
+        
+        labelNum5.text = "속상해"
+        labelNum5.textAlignment = .center
+        labelNum5.font = .systemFont(ofSize: 20)
+        
+        labelNum6.text = "우울해"
+        labelNum6.textAlignment = .center
+        labelNum6.font = .systemFont(ofSize: 20)
+        
+        labelNum7.text = "심심해"
+        labelNum7.textAlignment = .center
+        labelNum7.font = .systemFont(ofSize: 20)
+        
+        labelNum8.text = "행복해"
+        labelNum8.textAlignment = .center
+        labelNum8.font = .systemFont(ofSize: 20)
+        
+        labelNum9.text = "행복해"
+        labelNum9.textAlignment = .center
+        labelNum9.font = .systemFont(ofSize: 20)
+        
+        
+    }
     
 }
