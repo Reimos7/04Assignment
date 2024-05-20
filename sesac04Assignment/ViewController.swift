@@ -10,18 +10,11 @@ import UIKit
 class ViewController: UIViewController {
     
     // 버튼 클릭을 위한 변수
-    var labelCount1 = 0
-    var labelCount2 = 0
-    var labelCount3 = 0
-    var labelCount4 = 0
-    var labelCount5 = 0
-    var labelCount6 = 0
-    var labelCount7 = 0
-    var labelCount8 = 0
-    var labelCount9 = 0
+    var labelCount = [0,0,0,0,0,0,0,0,0]
+    
+    var labelTitle = ["행복해","사랑해","좋아해","당황해","속상해","우울해","심심해","행복해","사랑해"]
     
     // 버튼
-    
     @IBOutlet weak var resetButton: UIButton!
     
     @IBOutlet weak var button1: UIButton!
@@ -45,14 +38,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var labelNum8: UILabel!
     @IBOutlet weak var labelNum9: UILabel!
     
+    // 연결하는 순서대로 인덱스 부여 .. 자주 사용x
+    // 아웃렛 컬렉션을 배열처럼 활용가능
+    @IBOutlet var labelList: [UILabel]!
+    
     // 배경화면
     @IBOutlet weak var backGroundImage: UIImageView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tabBarItem.title = "나의 감정 일기"
+        self.navigationController?.navigationBar.topItem?.title = "나의 감정 일기"
+        // 네비게이션 옆에 버튼 만들기
         
         // 배경화면 설정 꽉차게
         backGroundImage.image = #imageLiteral(resourceName: "paperback")
@@ -63,150 +60,59 @@ class ViewController: UIViewController {
         resetButton.backgroundColor = .yellow
       
         // 버튼 이미지
-        button1.setBackgroundImage(.slime1, for: .normal)
-        button2.setBackgroundImage(.slime2, for: .normal)
-        button3.setBackgroundImage(.slime3, for: .normal)
-        button4.setBackgroundImage(.slime4, for: .normal)
-        button5.setBackgroundImage(.slime5, for: .normal)
-        button6.setBackgroundImage(.slime6, for: .normal)
-        button7.setBackgroundImage(.slime7, for: .normal)
-        button8.setBackgroundImage(.slime8, for: .normal)
-        button9.setBackgroundImage(.slime9, for: .normal)
-        
+        buttonSet(button1, .slime1)
+        buttonSet(button2, .slime2)
+        buttonSet(button3, .slime3)
+        buttonSet(button4, .slime4)
+        buttonSet(button5, .slime5)
+        buttonSet(button6, .slime6)
+        buttonSet(button7, .slime7)
+        buttonSet(button8, .slime8)
+        buttonSet(button9, .slime9)
         
         // 레이블 -> 텍스트 정렬, 글자 크기
-        labelNum1.text = "행복해"
-        labelNum1.textAlignment = .center
-        labelNum1.font = .systemFont(ofSize: 20)
-        
-        labelNum2.text = "사랑해"
-        labelNum2.textAlignment = .center
-        labelNum2.font = .systemFont(ofSize: 20)
-        
-        labelNum3.text = "좋아해"
-        labelNum3.textAlignment = .center
-        labelNum3.font = .systemFont(ofSize: 20)
-        
-        labelNum4.text = "당황해"
-        labelNum4.textAlignment = .center
-        labelNum4.font = .systemFont(ofSize: 20)
-        
-        labelNum5.text = "속상해"
-        labelNum5.textAlignment = .center
-        labelNum5.font = .systemFont(ofSize: 20)
-        
-        labelNum6.text = "우울해"
-        labelNum6.textAlignment = .center
-        labelNum6.font = .systemFont(ofSize: 20)
-        
-        labelNum7.text = "심심해"
-        labelNum7.textAlignment = .center
-        labelNum7.font = .systemFont(ofSize: 20)
-        
-        labelNum8.text = "행복해"
-        labelNum8.textAlignment = .center
-        labelNum8.font = .systemFont(ofSize: 20)
-        
-        labelNum9.text = "행복해"
-        labelNum9.textAlignment = .center
-        labelNum9.font = .systemFont(ofSize: 20)
-        
-        // 네비게이션 바
-
-        
-        
+        for i in 0...8{
+            designLabelUI(labelList[i], labelTitle[i] )
+        }
     }
-    
     
     // 버튼클릭 -> 숫자 증가 + 볼트체로 변경
-    @IBAction func button1Pressed(_ sender: UIButton) {
-        labelCount1 += 1
-        labelNum1.text = "행복해 \(labelCount1)"
-        labelNum1.font = .boldSystemFont(ofSize: 20)
-    }
-    @IBAction func button2Pressed(_ sender: UIButton) {
-        labelCount2 += 1
-        labelNum2.text = "사랑해 \(labelCount2)"
-        labelNum2.font = .boldSystemFont(ofSize: 20)
-    }
-    @IBAction func button3Pressed(_ sender: UIButton) {
-        labelCount3 += 1
-        labelNum3.text = "좋아해 \(labelCount3)"
-        labelNum3.font = .boldSystemFont(ofSize: 20)
-    }
-    @IBAction func button4Pressed(_ sender: UIButton) {
-        labelCount4 += 1
-        labelNum4.text = "당황해 \(labelCount4)"
-        labelNum4.font = .boldSystemFont(ofSize: 20)
-    }
-    @IBAction func button5Pressed(_ sender: UIButton) {
-        labelCount5 += 1
-        labelNum5.text = "속상해 \(labelCount5)"
-        labelNum5.font = .boldSystemFont(ofSize: 20)
-    }
-    @IBAction func button6Pressed(_ sender: UIButton) {
-        labelCount6 += 1
-        labelNum6.text = "우울해 \(labelCount6)"
-        labelNum6.font = .boldSystemFont(ofSize: 20)
-    }
-    @IBAction func button7Pressed(_ sender: UIButton) {
-        labelCount7 += 1
-        labelNum7.text = "심심해 \(labelCount7)"
-        labelNum7.font = .boldSystemFont(ofSize: 20)
-    }
-    @IBAction func button8Pressed(_ sender: UIButton) {
-        labelCount8 += 1
-        labelNum8.text = "행복해 \(labelCount8)"
-        labelNum8.font = .boldSystemFont(ofSize: 20)
-    }
-    @IBAction func button9Pressed(_ sender: UIButton) {
-        labelCount9 += 1
-        labelNum9.text = "행복해 \(labelCount9)"
-        labelNum9.font = .boldSystemFont(ofSize: 20)
+  
+    @IBAction func buttonPressed(_ sender: UIButton) {
+        
+        // if문으로 작성한걸 아래처럼 가능!
+        //        if sender.tag == 0{
+        //            labelCount[sender.tag] = labelCount[sender.tag] + 1
+        //        } else if sender.tag == 1 {
+        //            labelCount[sender.tag] = labelCount[sender.tag] + 1
+        //        }
+        
+        // tag를 이용한 카운트 1씩 증가
+        labelCount[sender.tag] = labelCount[sender.tag] + 1
+        
+        // tag를 이용해 레이블에 카운트 1씩 증가된것을 표시
+        labelList[sender.tag].text = labelTitle[sender.tag]+"\(labelCount[sender.tag])"
     }
     
-    
-    
-    
+   
     // 리셋 버튼 클릭
     @IBAction func resetButtonPressed(_ sender: UIButton) {
-        labelNum1.text = "행복해"
-        labelNum1.textAlignment = .center
-        labelNum1.font = .systemFont(ofSize: 20)
-        
-        labelNum2.text = "사랑해"
-        labelNum2.textAlignment = .center
-        labelNum2.font = .systemFont(ofSize: 20)
-        
-        labelNum3.text = "좋아해"
-        labelNum3.textAlignment = .center
-        labelNum3.font = .systemFont(ofSize: 20)
-        
-        labelNum4.text = "당황해"
-        labelNum4.textAlignment = .center
-        labelNum4.font = .systemFont(ofSize: 20)
-        
-        labelNum5.text = "속상해"
-        labelNum5.textAlignment = .center
-        labelNum5.font = .systemFont(ofSize: 20)
-        
-        labelNum6.text = "우울해"
-        labelNum6.textAlignment = .center
-        labelNum6.font = .systemFont(ofSize: 20)
-        
-        labelNum7.text = "심심해"
-        labelNum7.textAlignment = .center
-        labelNum7.font = .systemFont(ofSize: 20)
-        
-        labelNum8.text = "행복해"
-        labelNum8.textAlignment = .center
-        labelNum8.font = .systemFont(ofSize: 20)
-        
-        labelNum9.text = "행복해"
-        labelNum9.textAlignment = .center
-        labelNum9.font = .systemFont(ofSize: 20)
-        
-        
+      
+        for i in 0...8{
+            designLabelUI(labelList[i], labelTitle[i] )
+        }
     }
     
+    // 디자인 레이블
+    func designLabelUI(_ labelNum: UILabel, _ labelText: String){
+        
+        labelNum.text = labelText
+        labelNum.textAlignment = .center
+        labelNum.font = .systemFont(ofSize: 20)
+
+    }
+    func buttonSet(_ button: UIButton , _ image: UIImage){
+        
+        button.setBackgroundImage(image, for: .normal)
+    }
 }
