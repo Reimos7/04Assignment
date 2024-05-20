@@ -55,65 +55,36 @@ class searchAppController: UIViewController{
         searchButton.setImage(.searchButton, for: .normal)
         
         // 레이블 초기 설정 및 테두리 효과
+        
         label1.text = newCoinage[0]
-        label1.textAlignment = .center
-        label1.layer.cornerRadius = 10
-        label1.layer.borderWidth = 2
-        label1.layer.borderColor = UIColor.black.cgColor
+        labelSet(label1)
         
         label2.text = newCoinage[1]
-        label2.textAlignment = .center
-        label2.layer.cornerRadius = 10
-        label2.layer.borderWidth = 2
-        label2.layer.borderColor = UIColor.black.cgColor
+        labelSet(label2)
         
         label3.text = newCoinage[2]
-        label3.textAlignment = .center
-        label3.layer.cornerRadius = 10
-        label3.layer.borderWidth = 2
-        label3.layer.borderColor = UIColor.black.cgColor
+        labelSet(label3)
         
         label4.text = newCoinage[3]
-        label4.textAlignment = .center
-        label4.layer.cornerRadius = 10
-        label4.layer.borderWidth = 2
-        label4.layer.borderColor = UIColor.black.cgColor
+        labelSet(label4)
         
         label5.text = newCoinage[4]
-        label5.textAlignment = .center
-        label5.layer.cornerRadius = 10
-        label5.layer.borderWidth = 2
-        label5.layer.borderColor = UIColor.black.cgColor
+        labelSet(label5)
         
         label6.text = newCoinage[5]
-        label6.textAlignment = .center
-        label6.layer.cornerRadius = 10
-        label6.layer.borderWidth = 2
-        label6.layer.borderColor = UIColor.black.cgColor
+        labelSet(label6)
         
         label7.text = newCoinage[6]
-        label7.textAlignment = .center
-        label7.layer.cornerRadius = 10
-        label7.layer.borderWidth = 2
-        label7.layer.borderColor = UIColor.black.cgColor
+        labelSet(label7)
         
         label8.text = newCoinage[7]
-        label8.textAlignment = .center
-        label8.layer.cornerRadius = 10
-        label8.layer.borderWidth = 2
-        label8.layer.borderColor = UIColor.black.cgColor
+        labelSet(label8)
         
         label9.text = newCoinage[8]
-        label9.textAlignment = .center
-        label9.layer.cornerRadius = 10
-        label9.layer.borderWidth = 2
-        label9.layer.borderColor = UIColor.black.cgColor
+        labelSet(label9)
         
         label10.text = newCoinage[9]
-        label10.textAlignment = .center
-        label10.layer.cornerRadius = 10
-        label10.layer.borderWidth = 2
-        label10.layer.borderColor = UIColor.black.cgColor
+        labelSet(label10)
         
         // 키보드 return키를 통해 동작 처리 -> ui버튼 돋보기랑 같은 기능
         searchTextField.addTarget(self, action: #selector (searchTextFielAction)
@@ -130,7 +101,6 @@ class searchAppController: UIViewController{
         resultScreen()
       
     }
-    
 
     // 키보드 return키를 통해 동작 처리 -> ui버튼 돋보기 랑 같은 기능
     @objc func searchTextFielAction(textField: UITextField) {
@@ -205,6 +175,14 @@ class searchAppController: UIViewController{
         view.endEditing(true)
     }
     
+ 
+    // 레이블 초기 설정 및 테두리 효과
     
-    
+    func labelSet(_ label: UILabel){
+        
+        label.textAlignment = .center
+        label.layer.cornerRadius = 10
+        label.layer.borderWidth = 2
+        label.layer.borderColor = UIColor.black.cgColor
+    }
 }
